@@ -78,7 +78,7 @@ lsblk
 	3. Check the mounted partitions using ```lsblk```
 9. Install base packages
 ```bash
-pacstrap /mnt base linux linux-firmware vim git intel-ucode
+pacstrap /mnt base linux linux-firmware vim 
 ```
 10. Generate filesystem table
 ```bash
@@ -104,6 +104,8 @@ swapon /swapfile
 vim /etc/fstab
 /swapfile	none	swap	defaults	0	0
 ```
+**[ OPTIONAL ]:** You can run [base-efi.sh](https://github.com/mrbooshehri/scripts/tree/master/arch), instead of doing the following steps.
+
 13. Set timezone
 ```bash
 ln -s /usr/share/zoneinfo/Europe/Istanbul /etc/localtime
@@ -137,7 +139,7 @@ vim /etc hosts
 18. Set root user password using ```passwd```
 19. Install other packages
 ```bash
-pacman -S grub efibootmgr networkmanager network-manager-applet dialog wpa_supplicant mtools dosfstools reflector base-devel linux-headers bluez bluez-utils cups hplip bash-completion openssh rsync ntfs-3g 
+pacman -S grub efibootmgr networkmanager network-manager-applet dialog wpa_supplicant mtools dosfstools reflector base-devel linux-headers avahi xdg-user-dirs xdg-utils gvfs gvfs-smb nfs-utils inetutils dnsutils bluez bluez-utils cups hplip alsa-utils pipewire pipewire-alsa pipewire-pulse pipewire-jack bash-completion openssh rsync acpi acpi_call tlp dnsmasq sof-firmware acpid os-prober ntfs-3g git intel-ucode nvidia nvidia-utils nvidia-settings
 ```
 20. Install ```grub```
 ```bash
@@ -152,6 +154,12 @@ grub-mkconfig -o /boot/grub/grub.cfg
 systemctl enable NetworkManager
 systemctl enable bluetooth
 systemctl enable org.cups.cupsd
+systemctl enable sshd
+systemctl enable avahi-daemon
+systemctl enable tlp # You can comment this command out if you didn't install tlp, see above
+systemctl enable reflector.timer
+systemctl enable fstrim.timer
+systemctl enable acpid
 ```
 23. Create user
 ```bash
