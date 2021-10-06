@@ -78,7 +78,7 @@ lsblk
 	3. Check the mounted partitions using ```lsblk```
 9. Install base packages
 ```bash
-pacstrap /mnt base linux linux-firmware vim 
+pacstrap /mnt base linux linux-firmware vim git
 ```
 10. Generate filesystem table
 ```bash
@@ -139,7 +139,7 @@ vim /etc hosts
 18. Set root user password using ```passwd```
 19. Install other packages
 ```bash
-pacman -S grub efibootmgr networkmanager network-manager-applet dialog wpa_supplicant mtools dosfstools reflector base-devel linux-headers avahi xdg-user-dirs xdg-utils gvfs gvfs-smb nfs-utils inetutils dnsutils bluez bluez-utils cups hplip alsa-utils pipewire pipewire-alsa pipewire-pulse pipewire-jack bash-completion openssh rsync acpi acpi_call tlp dnsmasq sof-firmware acpid os-prober ntfs-3g git intel-ucode nvidia nvidia-utils nvidia-settings
+pacman -S grub efibootmgr networkmanager network-manager-applet dialog wpa_supplicant mtools dosfstools reflector base-devel linux-headers avahi xdg-user-dirs xdg-utils gvfs gvfs-smb nfs-utils inetutils dnsutils bluez bluez-utils cups hplip alsa-utils pipewire pipewire-alsa pipewire-pulse pipewire-jack bash-completion openssh rsync acpi acpi_call tlp dnsmasq sof-firmware acpid os-prober ntfs-3g intel-ucode nvidia nvidia-utils nvidia-settings
 ```
 20. Install ```grub```
 ```bash
