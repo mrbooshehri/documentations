@@ -23,7 +23,7 @@ Details:
 -a, --archive				archive mode
 -A, --acls					preserve ACL (Access Control List)
 -X, --xattrs				preserve extended atributes
--v,	--verbose				increase verbosity
+-v, --verbose				increase verbosity
 
 --dry-run					simulate the bachup
 --delete					delete extraneous files from dest dirs
