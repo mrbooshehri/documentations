@@ -87,3 +87,13 @@ The syntax for jq is pretty coherent:
 | Minimun value of an array| `jq 'min'` .See also  min, max, min_by(path_exp), max_by(path_exp) |
 | Remove duplicates| `jq 'unique'` or `jq 'unique_by(.foo)'` or `jq 'unique_by(length)'` |
 | Reverse an array | `jq 'reverse'` |
+
+
+## JSON to CSV
+
+```bash 
+cat simple.json| jq -r '(map(keys) | add | unique) as $cols | map(. as $row | $cols | map($row[.])) as $rows | $cols, $rows[] | @csv' 
+```
+```bash
+jq -r '.contacts.list[] | [.fist_name, .last_name, .phone_number] | @csv'  result.json
+```
