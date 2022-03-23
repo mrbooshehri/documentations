@@ -23,3 +23,6 @@ Ctrl + b --> ldr
 | ldr + p          | go to previous terminal  |
 | ldr + n          | go to next terminal      |
 | ldt + ,          | rename window name       |
+| ldt + !          | Convert pane into a window |
+| ldt + o          | Switch to next pane |
+| ldt + spacebar   | Toggle between pane layouts |
